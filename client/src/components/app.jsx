@@ -24,11 +24,18 @@ class App extends React.Component {
           //set state with data
           this.props.initReviews(res.data);
           console.log('Reviews?', this.props.reviews)
+<<<<<<< HEAD:client/src/components/app.jsx
         })
         .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
         console.log('inside of app componentwillmount here is the user and err', user, err)
         this.props.activeUser(user);
       } else {xs
+=======
+      })
+      .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+        this.props.activeUser(user);// here is a problem
+      } else {
+>>>>>>> test:client/src/components/app.js
         return (
           <div>
             <Login />
