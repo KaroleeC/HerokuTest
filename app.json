@@ -1,0 +1,11 @@
+{
+  "name": "Project1",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/find-daniel/Project1.git"
+  },
+  "keywords": [],
+ 
+}

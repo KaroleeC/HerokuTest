@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../');
 
 const Users = db.define('Users', {
-    userID: {
+    userid: {
       type: Sequelize.STRING
     },
     username: {

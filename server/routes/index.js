@@ -13,12 +13,12 @@ router.route('/search')
     // .get(searchController.search)
     .post(searchController.search)
 
-router.route('/restaurant') 
-    .get(reviewsController.getRestaurantReviews)    
+router.route('/restaurant')
+    .get(reviewsController.getRestaurantReviews)  
     // .post(restaurantController.getRestaurantReviews)
 
-router.route('/reviews') 
+router.route('/reviews')
     .get(reviewsController.GetUserReview)
     .post(reviewsController.CreateReview)
-    
+
 module.exports = router;

@@ -12,6 +12,11 @@ export default  function (state= defaultState, action){
         case "EDIT_BIO":
           return Object.assign({}, state, { bio: action.payload } )
           break;
+          
+        case "EDIT_LOCAL":
+          return Object.assign({}, state, { location: action.payload } )
+          break;
+
         default:
           return state;
     

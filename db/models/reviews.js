@@ -6,10 +6,10 @@ const Reviews = db.define('Reviews', {
     type: Sequelize.DECIMAL(3, 2)
   },
   userid: {
-    type: Sequelize.DECIMAL(3, 2)
+    type: Sequelize.STRING
   },
   restaurantid: {
-    type: Sequelize.DECIMAL(3, 2)
+    type: Sequelize.STRING
   },
 
 });

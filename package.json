@@ -1,8 +1,11 @@
 {
   "name": "Project1",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Food rating app",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon ./server/index.js",
@@ -31,7 +34,9 @@
     "express": "^4.16.2",
     "firebase": "^4.8.1",
     "mysql": "^2.15.0",
+    "mysql-server": "^1.0.5",
     "mysql2": "^1.5.1",
+    "node": "^9.4.0",
     "nodemon": "^1.14.7",
     "path": "^0.12.7",
     "react": "^16.2.0",

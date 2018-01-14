@@ -1,11 +1,11 @@
-const  Reviews = require('../../db/models/reviews');
+const Reviews = require('../../db/models/reviews');
 
 const reviewsController = {
   CreateReview: (req, res) => {
       Reviews.create({
         rating: req.body.rating,
-        UserId: req.body.user, 
-        RestaurantId: req.body.restaurant
+        userid: req.body.user, 
+        restaurantid: req.body.restaurant
       })
       .then(() => {
         Reviews.findAll({
@@ -17,7 +17,7 @@ const reviewsController = {
           res.status(201).send(data);
         });
       })
-      .catch(err => { console.log('***ERROR***');});
+      .catch(err => { console.log('***ERROR***:', err);});
   },
   GetUserReview: (req, res) => {
     Reviews.findAll({ where:{ userid: req.query.userid } })

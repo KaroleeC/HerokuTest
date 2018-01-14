@@ -7,9 +7,6 @@ import { selectOption } from '../actions/index';
 import Login from './login';
 import base from '../firebase.js';
 
-
-
-
 class Search extends React.Component { 
   search () {
     let inputValue =  document.getElementById('input').value.split(',');
@@ -29,18 +26,19 @@ class Search extends React.Component {
     if(this.props.active_user) {
       return (
         <nav className="navbar navbar-light bg-light justify-content-between" >
-          <a className="navbar-brand" href="#">FoodThoughts</a>
-          <form className="form-inline" >
+          <a className="navbar-brand" href=""
+            onClick={(e)=>this.props.selectOption('user')}
+          >FoodThoughts</a>
+          <form className="form-inline">
             <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
 
             <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
               e.preventDefault()
               this.search()
               this.props.selectOption('list')
-              }
-            }
-            >Submit</button>
-            <button className="btn btn-outline-danger my-s2 my-sm-0" onClick={base.logout} >Logout</button>
+              }}
+              >Submit</button>
+            <button className="btn btn-outline-danger" onClick={base.logout}>Logout</button>
           </form>
         </nav>
       )
