@@ -38,6 +38,9 @@ const reviewsController = {
       // console.log('inside of getRestaurantReviews here is all the data query from database ====>>>>>', data)
       res.status(201).send(data);
     })
+    .catch(err => {
+      res.status(500).send(err);
+    })
   }
 }
 

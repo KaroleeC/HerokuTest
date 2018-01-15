@@ -3,7 +3,7 @@ const axios = require('axios')
 
 
 export const selectRestaurant = (restaurant, data) => {
-
+  console.log('SelectRestaurant triggered');
   return {
     type: "RESTAURANT_SELECTED",
     payload: {...restaurant, reviews: data},

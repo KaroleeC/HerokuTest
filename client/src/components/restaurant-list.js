@@ -20,6 +20,7 @@ class List extends Component{
         })
         .catch((err) => {
           console.log('error from list axios', err)
+          this.props.selectRestaurant(restaurant)
         })
     }
     renderListItem() {
