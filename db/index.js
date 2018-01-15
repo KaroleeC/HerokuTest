@@ -1,16 +1,7 @@
 const Sequelize = require('sequelize');
-<<<<<<< HEAD
-const db = new Sequelize('FoodThoughts', 'root', '', {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-  operatorsAliases: false
-});
-=======
 const keys = require('../config.js');
 
 const db = new Sequelize(keys.SQLURL);
->>>>>>> master
 
 db.authenticate()
 
