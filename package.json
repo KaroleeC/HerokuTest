@@ -7,6 +7,7 @@
   },
   "main": "./server/index.js",
   "scripts": {
+    "start": "webpack -w & nodemon ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon ./server/index.js",
     "webpack-dev": "webpack -w"
