@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve('./client/src/index.js'),
@@ -21,5 +22,24 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
-}
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'FIREBASE_APIKEY': process.env.FIREBASE_APIKEY,
+        'FIREBASE_AUTHDOMAIN': process.env.FIREBASE_AUTHDOMAIN,
+        'FIREBASEDBURL': process.env.FIREBASEDBURL,
+        'FIREBASE_PROJECTID': process.env.FIREBASE_PROJECTID,
+        'FIREBASE_STOREBUCKET': process.env.FIREBASE_STOREBUCKET,
+        'FIREBASE_MESSAGEID': process.env.FIREBASE_MESSAGEID
+      }
+    }),
+  ]
+
+};
+
+// 'FIREBASE_AUTHDOMAIN': process.env.FIREBASE_AUTHDOMAIN,
+// 'FIREBASEDBURL': process.env.FIREBASEDBURL,
+// 'FIREBASE_PROJECTID': process.env.FIREBASE_PROJECTID,
+// 'FIREBASE_STOREBUCKET': process.env.FIREBASE_STOREBUCKET,
+// 'FIREBASE_MESSAGEID': process.env.FIREBASE_MESSAGEID
