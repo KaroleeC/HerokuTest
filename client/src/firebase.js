@@ -1,13 +1,14 @@
 import firebase from 'firebase';
-
+//import keys from '../../config.js'
+// changed keys to process.env
 
 const config = {
-  apiKey: keys.FIREBASE_apiKey,
-  authDomain: keys.FIREBASE_authDomain,
-  databaseURL: keys.FIREBASE_dbURL,
-  projectId: keys.FIREBASE_projectID,
-  storageBucket: keys.FIREBASE_storeBucket,
-  messagingSenderId: keys.FIREBASE_messageID
+  apiKey: process.env.FIREBASE_APIKEY,
+  authDomain: process.env.FIREBASE_AUTHDOMAIN,
+  databaseURL: process.env.FIREBASEDBURL,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STOREBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGEID
 };
 
 firebase.initializeApp(config);
@@ -69,6 +70,3 @@ const base = {
 
 
 export default base;
-
-//import keys from '../../config.js'
-// changed keys to process.env
