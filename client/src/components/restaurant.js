@@ -21,12 +21,10 @@ class Restaurant extends Component {
           restaurantid: this.props.active_restaurant.id
         }
       })
-        .then((data) => {
+        .then((response) => {
           console.log('These are this restaurants reviews: ', data);
-          // this.setState({
-          //   restaurants: data.data
-          // });
-          console.log('This is resReviews', this.state.restaurants);
+         this.props.initReviews(response.data)
+          
         })
         .catch((err) => {
           console.log('Failed to fetch restaurant reviews: ', err);
@@ -64,13 +62,13 @@ class Restaurant extends Component {
             }> Add Review</button>
           </div>
           <div style={{marginTop: '15px'}}> 
-            {/* <ul className="list-group">
+             <ul className="list-group">
               { 
-                this.state.restaurants.map(item => {
+                this.state.reviews.map(review => {
                   return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
                 })
               }
-            </ul> */}
+            </ul> 
           </div>
         </div>
         {/* Footer */}
@@ -91,7 +89,8 @@ function mapStateToProps(state) {
   
   return {
     active_restaurant: state.active_restaurant,
-    userLoad: state.userLoad
+    userLoad: state.userLoad,
+    reviews: state.reviews
   }
 }
 
