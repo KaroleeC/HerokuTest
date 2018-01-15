@@ -47,7 +47,7 @@ class Restaurant extends Component {
           <hr/>
         </div>
         {/* Restaurant reviews */}
-        <div className="offset-sm-3 col-sm-6 offset-sm-3" style={{marginTop: '25px'}} >
+        <div className="offset-sm-2 col-sm-8 offset-sm-2" style={{marginTop: '25px'}} >
           <div>
             <button className="offset-sm-4 col-sm-4 offset-sm-4 btn btn-outline-dark" style={{fontFamily: 'Monserrat, sans-serif'}} onClick={(e) => 
             {
@@ -59,20 +59,30 @@ class Restaurant extends Component {
           <div style={{marginTop: '15px'}}> 
              <ul className="list-group">
               { 
-                this.props.reviews.map(review => {
-                  return <li>
-                  <div>
-                  <img src = {review.userimage}/>
-            
-                  </div>
-                  <div>
-                  {review.username}
-                  </div>
-                  <div>
-                  {review.rating}
-                  {review.comment}
-                  </div>
-                </li>
+                this.props.reviews.slice(0).reverse().map(review => {
+                  return (
+                  <li className="list-group-item col-sm-12">
+                    <div className="container" >
+                      <div className="col-lg-3" style={{display: 'inline-block'}} >
+                        <img className="img-fluid float-left rounded" style={{paddingTop: '-25px'}}  src = {review.userimage}/>
+                      </div>
+                      <div className="offset-sm-1 col-sm-6" style={{display: 'inline-block'}}>
+                        <div>
+                          <h5>{review.username}</h5>
+                          <hr/>
+                        </div>
+                        <div>
+                          {review.comment}
+                          <hr/>
+                        </div>
+                        <div>
+                          <h6>Rating</h6>
+                          {review.rating}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  )
                 })
               }
             </ul> 
