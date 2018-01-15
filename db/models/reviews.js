@@ -5,17 +5,6 @@ const Reviews = db.define('Reviews', {
   rating: {
     type: Sequelize.DECIMAL(3, 2)
   },
-<<<<<<< HEAD
-  // comments: {
-  //   type: Sequelize.STRING
-  // },
-  restaurantid: {
-||||||| merged common ancestors
-  userid: {
-    type: Sequelize.STRING
-  },
-  restaurantid: {
-=======
   restaurantid: {
     type: Sequelize.STRING
   },
@@ -23,7 +12,6 @@ const Reviews = db.define('Reviews', {
     type: Sequelize.STRING
   },
   userimage: {
->>>>>>> styling
     type: Sequelize.STRING
   },
   username: {
