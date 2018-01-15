@@ -12,25 +12,27 @@ class Restaurant extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   setTimeout(() => {
-  //     axios.get('/api/restaurant',  {
-  //       params: {
-  //         restaurantid: this.props.active_restaurant.id
-  //       }
-  //     })
-  //       .then((data) => {
-  //         console.log('These are this restaurants reviews: ', data);
-  //         this.setState({
-  //           restaurants: data.data
-  //         });
-  //         console.log('This is resReviews', this.state.restaurants);
-  //       })
-  //       .catch((err) => {
-  //         console.log('Failed to fetch restaurant reviews: ', err);
-  //       });  
-  //   }, 50); 
-  // }
+  componentWillMount() {
+    // console.log('just did a get request this is the this.,props.userLoad[0].id', this.props.userLoad[0])
+    setTimeout(() => {
+      console.log('this is the this.props.ative_restaruant', this.props.active_restaurant)
+      axios.get('/api/restaurant',  {
+        params: {
+          restaurantid: this.props.active_restaurant.id
+        }
+      })
+        .then((data) => {
+          console.log('These are this restaurants reviews: ', data);
+          // this.setState({
+          //   restaurants: data.data
+          // });
+          console.log('This is resReviews', this.state.restaurants);
+        })
+        .catch((err) => {
+          console.log('Failed to fetch restaurant reviews: ', err);
+        });  
+    }, 50); 
+  }
 
   render() {
     return (
@@ -89,6 +91,7 @@ function mapStateToProps(state) {
   
   return {
     active_restaurant: state.active_restaurant,
+    userLoad: state.userLoad
   }
 }
 
