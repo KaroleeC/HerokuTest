@@ -48,101 +48,106 @@ class ReviewForm extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Review Form</h1>
-        <form onChange={this.onSelect} name="food">
-          <p>How would you rate the food?</p>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="food" id="one" value={1} />
-            <label className="form-check-label" htmlFor="one">1</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="food" id="two" value="2" />
-            <label className="form-check-label" htmlFor="two">2</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="food" id="three" value="3" />
-            <label className="form-check-label" htmlFor="three">3</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="food" id="four" value="4" />
-            <label className="form-check-label" htmlFor="four">4</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="food" id="five" value="5" />
-            <label className="form-check-label" htmlFor="five">5</label>
-          </div>
+      <div className="container card offset-sm-3 col-sm-6 offset-sm-3" style={{marginTop: '75px'}}>
+        <div className="offset-sm-2 col-sm-8 offset-sm-2" >
+          <h1 className="text-center" style={{marginTop: '15px'}} >Leave A Thought</h1>
+          <hr/>
+        </div>
+        <div className="card-body text-center">
+          <form onChange={this.onSelect} name="food">
+            <p>How would you rate the food?</p>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="food" id="one" value={1} />
+              <label className="form-check-label" htmlFor="one">1</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="food" id="two" value="2" />
+              <label className="form-check-label" htmlFor="two">2</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="food" id="three" value="3" />
+              <label className="form-check-label" htmlFor="three">3</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="food" id="four" value="4" />
+              <label className="form-check-label" htmlFor="four">4</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="food" id="five" value="5" />
+              <label className="form-check-label" htmlFor="five">5</label>
+            </div>
 
-          <p>How would you rate the service?</p>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="service" id="one" value={1} />
-            <label className="form-check-label" htmlFor="one">1</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="service" id="two" value="2" />
-            <label className="form-check-label" htmlFor="two">2</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="service" id="three" value="3" />
-            <label className="form-check-label" htmlFor="three">3</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="service" id="four" value="4" />
-            <label className="form-check-label" htmlFor="four">4</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="service" id="five" value="5" />
-            <label className="form-check-label" htmlFor="five">5</label>
-          </div>
+            <p>How would you rate the service?</p>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="service" id="one" value={1} />
+              <label className="form-check-label" htmlFor="one">1</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="service" id="two" value="2" />
+              <label className="form-check-label" htmlFor="two">2</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="service" id="three" value="3" />
+              <label className="form-check-label" htmlFor="three">3</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="service" id="four" value="4" />
+              <label className="form-check-label" htmlFor="four">4</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="service" id="five" value="5" />
+              <label className="form-check-label" htmlFor="five">5</label>
+            </div>
 
-          <p>How would you rate the atmosphere?</p>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="atmosphere" id="one" value={1} />
-            <label className="form-check-label" htmlFor="one">1</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="atmosphere" id="two" value="2" />
-            <label className="form-check-label" htmlFor="two">2</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="atmosphere" id="three" value="3" />
-            <label className="form-check-label" htmlFor="three">3</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="atmosphere" id="four" value="4" />
-            <label className="form-check-label" htmlFor="four">4</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="atmosphere" id="five" value="5" />
-            <label className="form-check-label" htmlFor="five">5</label>
-          </div>
+            <p>How would you rate the atmosphere?</p>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="atmosphere" id="one" value={1} />
+              <label className="form-check-label" htmlFor="one">1</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="atmosphere" id="two" value="2" />
+              <label className="form-check-label" htmlFor="two">2</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="atmosphere" id="three" value="3" />
+              <label className="form-check-label" htmlFor="three">3</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="atmosphere" id="four" value="4" />
+              <label className="form-check-label" htmlFor="four">4</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="atmosphere" id="five" value="5" />
+              <label className="form-check-label" htmlFor="five">5</label>
+            </div>
 
-          <p>How would you rate the cleanliness?</p>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="cleanliness" id="one" value={1} />
-            <label className="form-check-label" htmlFor="one">1</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="cleanliness" id="two" value="2" />
-            <label className="form-check-label" htmlFor="two">2</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="cleanliness" id="three" value="3" />
-            <label className="form-check-label" htmlFor="three">3</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="cleanliness" id="four" value="4" />
-            <label className="form-check-label" htmlFor="four">4</label>
-          </div>
-          <div className="form-check form-check-inline" >
-            <input className="form-check-input" type="radio" name="cleanliness" id="five" value="5" />
-            <label className="form-check-label" htmlFor="five">5</label>
-          </div>
+            <p>How would you rate the cleanliness?</p>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="cleanliness" id="one" value={1} />
+              <label className="form-check-label" htmlFor="one">1</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="cleanliness" id="two" value="2" />
+              <label className="form-check-label" htmlFor="two">2</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="cleanliness" id="three" value="3" />
+              <label className="form-check-label" htmlFor="three">3</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="cleanliness" id="four" value="4" />
+              <label className="form-check-label" htmlFor="four">4</label>
+            </div>
+            <div className="form-check form-check-inline" >
+              <input className="form-check-input" type="radio" name="cleanliness" id="five" value="5" />
+              <label className="form-check-label" htmlFor="five">5</label>
+            </div>
 
-          <br/>
-
-          <div>
-            <button className="btn btn-primary" onClick={(e) => {
+            <br/>
+          </form>
+        </div>
+        <div className="text-center" style={{marginBottom: '15px'}} >
+            <button className="btn btn-outline-dark" onClick={(e) => {
               e.preventDefault()
               this.onSubmitHandler()
               this.props.selectOption('restaurant');
@@ -150,7 +155,6 @@ class ReviewForm extends React.Component {
               Submit
             </button>  
           </div>
-        </form>
       </div>
     )
   }

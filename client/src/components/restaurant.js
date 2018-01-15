@@ -39,7 +39,7 @@ class Restaurant extends Component {
         {/* Restaurant name and image */}
         <div>
           <div style={{marginTop: '20px'}} >
-            <h2 className="text-center">{this.props.active_restaurant.name}</h2>
+            <h2 className="text-center" style={{fontFamily: 'Monserrat, sans-serif'}} >{this.props.active_restaurant.name}</h2>
           </div>
           <hr/>
           <img className="img-fluid rounded" style={{maxWidth: '60%', margin: '30px 20%'}}  src={this.props.active_restaurant.image_url}/>
@@ -47,14 +47,14 @@ class Restaurant extends Component {
         {/* Restaurant info */}
         <div className="offset-sm-2 col-sm-8 offset-sm-2 text-muted">
           <hr/>
-          <h4 className="text-center" >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
-          <h4 className="text-center" >{this.props.active_restaurant.display_phone}</h4>
+          <h4 className="text-center" style={{fontFamily: 'Monserrat, sans-serif'}} >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
+          <h4 className="text-center" style={{fontFamily: 'Monserrat, sans-serif'}} >{this.props.active_restaurant.display_phone}</h4>
           <hr/>
         </div>
         {/* Restaurant reviews */}
         <div className="offset-sm-3 col-sm-6 offset-sm-3" style={{marginTop: '25px'}} >
           <div>
-            <button className="offset-sm-5 col-sm-2 offset-sm-5 btn btn-outline-dark" onClick={(e) => 
+            <button className="offset-sm-4 col-sm-4 offset-sm-4 btn btn-outline-dark" style={{fontFamily: 'Monserrat, sans-serif'}} onClick={(e) => 
             {
               e.preventDefault()
               this.props.selectOption('review');
