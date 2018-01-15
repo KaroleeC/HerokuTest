@@ -1,5 +1,4 @@
 const axios = require('axios');
-const keys = require('../../config.js');
 
 const searchController = {
   search: (req, res) =>{
@@ -9,7 +8,6 @@ const searchController = {
     const options = {
       method: 'GET',
       url: url,
-      headers: {Authorization: keys.Authorization}
     }
      axios(options)
      .then(({ data }) => {
@@ -24,3 +22,7 @@ const searchController = {
 
 module.exports = searchController
 
+
+//const keys = require('../../config.js');
+// changed keys to process.env
+      headers: {Authorization: process.env.AUTHORIZATION }
