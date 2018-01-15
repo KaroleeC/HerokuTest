@@ -5,9 +5,9 @@ const Reviews = db.define('Reviews', {
   rating: {
     type: Sequelize.DECIMAL(3, 2)
   },
-  userid: {
-    type: Sequelize.STRING
-  },
+  // comments: {
+  //   type: Sequelize.STRING
+  // },
   restaurantid: {
     type: Sequelize.STRING
   },

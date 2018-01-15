@@ -7,6 +7,7 @@ import reviewsreducer from './reviewsreducer';
 import editBio from './editbio';
 import active_user from './active_userreducer'
 import optionSelector from './optionSelector';
+import userLoad from './userLoad';
 
 const allreducers = combineReducers({
 
@@ -17,7 +18,8 @@ const allreducers = combineReducers({
     reviews: reviewsreducer,
     editBio: editBio,
     active_user: active_user,
-    option: optionSelector
+    option: optionSelector,
+    userLoad: userLoad
 })
 
 export default allreducers;

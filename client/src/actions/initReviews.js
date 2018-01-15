@@ -1,8 +1,8 @@
-export const initReviews = (reviews) => {
+export const initReviews = (data) => {
   console.log('hi from initReviews')
     return {
       type: "INIT_REVIEWS",
-      payload: reviews
+      payload: data[0]
     }
   
   }
