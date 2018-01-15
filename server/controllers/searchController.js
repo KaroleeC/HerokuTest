@@ -15,15 +15,10 @@ const searchController = {
        res.send(data);
      })
      .catch((err) => {
-       console.log('This is the error', err)
+       console.log('This is the error', err);
        res.sendStatus(500);
      })
   }
 }
 
-module.exports = searchController
-
-
-//const keys = require('../../config.js');
-// changed keys to process.env
-      
+module.exports = searchController;  

@@ -18,7 +18,7 @@ class Search extends React.Component {
           this.props.searchRestaurant(response.data);
       })
       .catch((err) => {
-        console.log('inside of catch', err)
+        console.log('Search.js inside of catch', err)
       })
 
   }
