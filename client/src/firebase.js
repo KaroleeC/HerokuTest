@@ -70,6 +70,3 @@ const base = {
 
 
 export default base;
-
-//import keys from '../../config.js'
-// changed keys to process.env
