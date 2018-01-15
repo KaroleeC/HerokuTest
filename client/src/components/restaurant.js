@@ -3,15 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectOption } from '../actions/index';
 import axios from 'axios';
+import { initReviews } from '../actions/initReviews';
 
 class Restaurant extends Component {
-  constructor() {
-    super();
-    this.state = {
-      restaurants : []
-    }
-  }
-
+  
   componentWillMount() {
     // console.log('just did a get request this is the this.,props.userLoad[0].id', this.props.userLoad[0])
     setTimeout(() => {
@@ -21,12 +16,10 @@ class Restaurant extends Component {
           restaurantid: this.props.active_restaurant.id
         }
       })
-        .then((data) => {
-          console.log('These are this restaurants reviews: ', data);
-          // this.setState({
-          //   restaurants: data.data
-          // });
-          console.log('This is resReviews', this.state.restaurants);
+        .then((response) => {
+          console.log('These are this restaurants reviews: ', response.data);
+         this.props.initReviews(response.data)
+          
         })
         .catch((err) => {
           console.log('Failed to fetch restaurant reviews: ', err);
@@ -64,13 +57,25 @@ class Restaurant extends Component {
             }> Add Review</button>
           </div>
           <div style={{marginTop: '15px'}}> 
-            {/* <ul className="list-group">
+             <ul className="list-group">
               { 
-                this.state.restaurants.map(item => {
-                  return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
+                this.props.reviews.map(review => {
+                  return <li>
+                  <div>
+                  <img src = {review.userimage}/>
+            
+                  </div>
+                  <div>
+                  {review.username}
+                  </div>
+                  <div>
+                  {review.rating}
+                  {review.comment}
+                  </div>
+                </li>
                 })
               }
-            </ul> */}
+            </ul> 
           </div>
         </div>
         {/* Footer */}
@@ -91,12 +96,16 @@ function mapStateToProps(state) {
   
   return {
     active_restaurant: state.active_restaurant,
-    userLoad: state.userLoad
+    userLoad: state.userLoad,
+    reviews: state.reviews
   }
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({selectOption: selectOption}, dispatch)
+  return bindActionCreators({selectOption: selectOption,
+                            initReviews: initReviews
+  
+  }, dispatch)
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Restaurant)

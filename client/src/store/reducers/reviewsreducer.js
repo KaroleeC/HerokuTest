@@ -30,9 +30,8 @@ export default function (state=dumreviews, action) {
             console.log('payload', action.payload);
           return action.payload
           break;
-        default:
-          return state;
-    
-      }
+          
+        }
+        return state;
 }
 
