@@ -10,6 +10,8 @@ import { changeLocal } from '../actions/changeLocal';
 import { initReviews } from '../actions/initReviews';
 import { userInfo } from '../../src/actions/userInfo';
 import { selectOption } from '../actions/index'
+import { userreviews } from '../../src/actions/userInfo';
+
 //need a location finder for user location
 
 class User extends Component {
@@ -32,7 +34,8 @@ class User extends Component {
     axios.get(`/api/user?userid=${this.props.active_user.uid}`).then( res => {
       //set state with data
       console.log('inside of componentwillpoent, this is the res', res)
-      this.props.userInfo(res.data);
+      this.props.userInfo(res.data.result);
+      this.props.userreviews(res.data.response)
     })
     .catch(err => { 
       console.log('axois get request err (userdisplay.js)', err); } );
@@ -40,20 +43,45 @@ class User extends Component {
 
   renderCondition() {
     //search db for reviews associated with this user id
-    if( this.props.reviews.length <= 0 ){
-        //if no reviews
+    console.log('inside of renderCondition, this is this.props.userReviews', this.props.userReviews)
+    
+    if(this.props.userReviews) {
+    //  if( this.props.userReviews.length <= 0 ){
+    //     //if no reviews
+    //   return (
+    //     <div> Looks like you have no food thoughts. <br/> Search for a restaurant to submit your thoughts... </div> 
+    //   )
+    // } else {
+      //if they have reviews
+      return (
+        <ul>
+          {
+            this.props.userReviews.slice(0).reverse().map(review => {
+              
+              return (<li key={review.restaurantid}>
+                <div> 
+                  {review.restaurantid}
+                </div>
+                <div> 
+                  {review.rating}
+                  {review.comment}
+                </div>
+              
+              </li>)
+
+            })
+          }
+
+        </ul>
+      )
+    }else{
       return (
         <div> Looks like you have no food thoughts. <br/> Search for a restaurant to submit your thoughts... </div> 
       )
-    } else {
-      //if they have reviews
-      return (
-        <div >
-          Comments
-          <Review username={this.props.active_user.displayName}/>
-        </div>
-      )
     }
+
+
+
   }
 
   BioDisplay() {
@@ -172,7 +200,8 @@ function mapStateToProps(state) {
     reviews: state.reviews,
     active_user: state.active_user,
     userLoad: state.userLoad,
-    option: state.option
+    option: state.option,
+    userReviews: state.userReviews
   } 
 };
 
@@ -184,7 +213,8 @@ function matchDispatchToProps(dispatch) {
     changeLocal: changeLocal,
     initReviews: initReviews,
     userInfo: userInfo,
-    selectOption: selectOption
+    selectOption: selectOption,
+    userreviews: userreviews
   }, dispatch)
 }
 
