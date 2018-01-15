@@ -33,7 +33,7 @@ class ReviewForm extends React.Component {
     let payload = {
       restaurantid: this.props.active_restaurant.id,
       rating: average,
-      userid: this.props.userLoad[0].id,
+      userid: this.props.userLoad[0].userid,
       username: this.props.active_user.displayName,
       userimage: this.props.active_user.photoURL,
       comment: text
