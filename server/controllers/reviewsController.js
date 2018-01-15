@@ -2,10 +2,11 @@ const Reviews = require('../../db/models/reviews');
 
 const reviewsController = {
   CreateReview: (req, res) => {
+    console.log('createReview, this is the req.body', req.body)
       Reviews.create({
         rating: req.body.rating,
-        userid: req.body.user, 
-        restaurantid: req.body.restaurant
+        restaurantid: req.body.restaurantid,
+        UserId: req.body.userid, 
       })
       .then(() => {
         Reviews.findAll({
@@ -20,6 +21,7 @@ const reviewsController = {
       .catch(err => { console.log('***ERROR***:', err);});
   },
   GetUserReview: (req, res) => {
+    // console.log('here is the userid!!!!!', req.query.userid)
     Reviews.findAll({ where:{ userid: req.query.userid } })
     .then(data => {
       res.status(201).send(data)})
@@ -32,8 +34,8 @@ const reviewsController = {
       }
     })
     .then(data => {
-      console.log('inside of getRestaurantReviews here is all the data query from database ====>>>>>', data)
-      res.status(201).send([{restaurantid:1, comments:'good restaurant!!!!!!', rating:5, userid:'shayne'}])
+      // console.log('inside of getRestaurantReviews here is all the data query from database ====>>>>>', data)
+      res.status(201).send(data);
     })
   }
 }

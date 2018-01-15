@@ -3,9 +3,11 @@ const db = new Sequelize('FoodThoughts', 'root', '', {
   host: 'localhost',
   port: 3306,
   dialect: 'mysql',
+  operatorsAliases: false
 });
 
 db.authenticate()
+
   .then(() => {
     console.log('Connected to database: FoodThoughts');
   })
