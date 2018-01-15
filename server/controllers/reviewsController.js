@@ -34,7 +34,7 @@ const reviewsController = {
     console.log('inside of getRestaurantReviews. this is the req.query', req.query)
     Reviews.findAll({
       where:{
-        restaurantId: req.query.restaurantid
+        restaurantid: req.query.restaurantid
       }
     })
     .then(data => {
