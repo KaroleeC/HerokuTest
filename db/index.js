@@ -13,3 +13,4 @@ db.authenticate()
   })
 
 module.exports = db;
+const db = new Sequelize(process.env.ELEPHANTSQL_URL);

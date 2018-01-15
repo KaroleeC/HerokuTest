@@ -14,3 +14,6 @@ const port = process.env.PORT || 3000;
 app.listen(port, function(){
     console.log(`server now is listening on ${port}`)
 })
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
+    console.log(`server now is listening on ${port}`)
