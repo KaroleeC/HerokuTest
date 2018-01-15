@@ -1,19 +1,10 @@
 //function containing object for restaurant state data
-<<<<<<< HEAD
-// const defaultState = {  
-//     id: 1,
-//     name: 'Anonymous',
-//     location: 'Nowhere, CA',
-//     bio: 'blah, blah',
-// }
-=======
 const defaultState = {  
     id: 1,
     name: 'Anonymous',
     location: 'Los Angeles, CA',
     bio: 'Your info here',
 }
->>>>>>> master
 
 
 export default  function (state=null, action){
