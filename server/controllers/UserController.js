@@ -14,7 +14,12 @@ const UserController = {
                 User.create({ userid: req.query.userid, location: req.query.location, bio: req.query.bio })
                     .then(()=> {res.send({userid: req.query.userid, location: 'usa', bio:'wode wode wode', reviews: 'sm wnyi'})})
               }else{
-                res.send(result);
+                  reviews.findAll({where: {userid: req.query.userid}})
+                    .then(response => {
+                        res.send({result: result, response: response});
+                    })
+                    .catch(err => { console.log('error when getting users information and reviews', err)})
+                // res.send(result);
               }
           })
     },
