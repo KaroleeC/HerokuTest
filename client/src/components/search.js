@@ -30,16 +30,6 @@ class Search extends React.Component {
             onClick={(e)=>this.props.selectOption('user')}
           >FoodThoughts</a>
           <form className="form-inline">
-<<<<<<< HEAD
-            <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
-
-            <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
-              e.preventDefault()
-              this.search()
-              this.props.selectOption('list')
-              }}
-              >Submit</button>
-=======
             <div style={{marginRight: '7px'}} >
               <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
               <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
@@ -49,7 +39,6 @@ class Search extends React.Component {
                 }}
                 >Submit</button>
             </div>
->>>>>>> master
             <button className="btn btn-outline-danger" onClick={base.logout}>Logout</button>
           </form>
         </nav>
