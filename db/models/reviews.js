@@ -5,13 +5,21 @@ const Reviews = db.define('Reviews', {
   rating: {
     type: Sequelize.DECIMAL(3, 2)
   },
-  // comments: {
-  //   type: Sequelize.STRING
-  // },
   restaurantid: {
     type: Sequelize.STRING
   },
-
+  userid: {
+    type: Sequelize.STRING
+  },
+  userimage: {
+    type: Sequelize.STRING
+  },
+  username: {
+    type: Sequelize.STRING
+  },
+  comment: {
+    type: Sequelize.STRING
+  }
 });
 
 module.exports = Reviews;
