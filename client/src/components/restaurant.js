@@ -3,15 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectOption } from '../actions/index';
 import axios from 'axios';
+import { initReviews } from '../actions/initReviews';
 
 class Restaurant extends Component {
-  constructor() {
-    super();
-    this.state = {
-      restaurants : []
-    }
-  }
-
+  
   componentWillMount() {
     // console.log('just did a get request this is the this.,props.userLoad[0].id', this.props.userLoad[0])
     setTimeout(() => {
@@ -22,7 +17,7 @@ class Restaurant extends Component {
         }
       })
         .then((response) => {
-          console.log('These are this restaurants reviews: ', data);
+          console.log('These are this restaurants reviews: ', response.data);
          this.props.initReviews(response.data)
           
         })
@@ -64,8 +59,20 @@ class Restaurant extends Component {
           <div style={{marginTop: '15px'}}> 
              <ul className="list-group">
               { 
-                this.state.reviews.map(review => {
-                  return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
+                this.props.reviews.map(review => {
+                  return <li>
+                  <div>
+                  <img src = {review.userimage}/>
+            
+                  </div>
+                  <div>
+                  {review.username}
+                  </div>
+                  <div>
+                  {review.rating}
+                  {review.comment}
+                  </div>
+                </li>
                 })
               }
             </ul> 
@@ -95,7 +102,10 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({selectOption: selectOption}, dispatch)
+  return bindActionCreators({selectOption: selectOption,
+                            initReviews: initReviews
+  
+  }, dispatch)
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(Restaurant)
