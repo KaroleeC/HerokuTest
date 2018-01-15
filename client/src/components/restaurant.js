@@ -12,32 +12,29 @@ class Restaurant extends Component {
     }
   }
 
-  componentWillMount() {
-    setTimeout(() => {
-      axios.get('/api/restaurant',  {
-        params: {
-          restaurantid: this.props.active_restaurant.id
-        }
-      })
-        .then((data) => {
-          console.log('These are this restaurants reviews: ', data);
-          this.setState({
-            restaurants: data.data
-          });
-          console.log('This is resReviews', this.state.restaurants);
-        })
-        .catch((err) => {
-          console.log('Failed to fetch restaurant reviews: ', err);
-        });  
-    }, 50); 
-  }
+  // componentWillMount() {
+  //   setTimeout(() => {
+  //     axios.get('/api/restaurant',  {
+  //       params: {
+  //         restaurantid: this.props.active_restaurant.id
+  //       }
+  //     })
+  //       .then((data) => {
+  //         console.log('These are this restaurants reviews: ', data);
+  //         this.setState({
+  //           restaurants: data.data
+  //         });
+  //         console.log('This is resReviews', this.state.restaurants);
+  //       })
+  //       .catch((err) => {
+  //         console.log('Failed to fetch restaurant reviews: ', err);
+  //       });  
+  //   }, 50); 
+  // }
 
   render() {
-   if(!this.props.active_restaurant){
-    return (<div>pick restuarant</div>)
-  
-  }
     return (
+      !this.props.active_restaurant ? (<div>pick restuarant</div>) :
       <div>
         {/* Restaurant name and image */}
         <div>
@@ -51,7 +48,7 @@ class Restaurant extends Component {
         <div className="offset-sm-2 col-sm-8 offset-sm-2 text-muted">
           <hr/>
           <h4 className="text-center" >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
-          <h4 className="text-center" >{this.props.active_restaurant.phone}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.display_phone}</h4>
           <hr/>
         </div>
         {/* Restaurant reviews */}
@@ -65,13 +62,13 @@ class Restaurant extends Component {
             }> Add Review</button>
           </div>
           <div style={{marginTop: '15px'}}> 
-            <ul className="list-group">
+            {/* <ul className="list-group">
               { 
                 this.state.restaurants.map(item => {
                   return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
                 })
               }
-            </ul>
+            </ul> */}
           </div>
         </div>
         {/* Footer */}
