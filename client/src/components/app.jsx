@@ -1,17 +1,17 @@
 //layout for app
-import React from 'react'
-import User from './userdisplay'
-import Review from './DisplayReviews'
-import Login from './login'
-import Search from './search'
-import Restaurants from './restaurant-list'
-import Restaurant from './restaurant'
-import ReviewForm from './ReviewForm'
-import firebase from '../firebase'
-import { activeUser } from '../actions'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import axios from 'axios'
+import React from 'react';
+import User from './userdisplay';
+import Review from './DisplayReviews';
+import Login from './login';
+import Search from './search';
+import Restaurants from './restaurant-list';
+import Restaurant from './restaurant';
+import ReviewForm from './ReviewForm';
+import firebase from '../firebase';
+import { activeUser } from '../actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import axios from 'axios';
 import Option from './option';
 
 
