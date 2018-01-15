@@ -6,8 +6,8 @@ const UserController = require('../controllers/UserController');
 const reviewsController = require('../controllers/reviewsController');
 
 router.route('/user') 
-    .get()
-    .post()
+    .get(UserController.getUserInfo)
+    .post(UserController.upDateUserInfo)
 
 router.route('/search')
     // .get(searchController.search)

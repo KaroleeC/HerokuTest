@@ -4,7 +4,7 @@ const Reviews = require('./reviews');
 
 // Users.hasMany(Reviews);
 // Restaurants.hasMany(Reviews);
-// Reviews.belongsTo(Users);
+Reviews.belongsTo(Users);
 // Reviews.belongsTo(Restaurants);
 
 Users.sync()
@@ -15,13 +15,13 @@ Users.sync()
     console.log('Error connecting Users table: ', err);
   });
 
-Restaurants.sync()
-  .then(() => {
-    console.log('Connected Restaurants table');
-  })
-  .catch((err) => {
-    console.log('Error connecting Restaurants table: ', err);
-  });
+// Restaurants.sync()
+//   .then(() => {
+//     console.log('Connected Restaurants table');
+//   })
+//   .catch((err) => {
+//     console.log('Error connecting Restaurants table: ', err);
+//   });
 
 Reviews.sync()
   .then(() => {

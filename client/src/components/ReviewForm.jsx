@@ -29,15 +29,16 @@ class ReviewForm extends React.Component {
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
 
     console.log(average);
-    console.log('muthafuckin uid', this.props.active_user.uid)
-
-    const payload = {
-      restaurant: this.props.active_restaurant.id,
+    // console.log('muthafuckin uid', this.props.active_user.uid)
+    console.log('this is the this.prop.userLoad',this.props.userLoad)
+    let payload = {
+      restaurantid: this.props.active_restaurant.id,
       rating: average,
-      user: this.props.active_user.uid
+      userid: this.props.userLoad[0].id
     };
-
+console.log('this is the payload', payload)
     axios.post('/api/reviews', payload)
+    
       .then((data) => {
         console.log('Sent data: ', data);
       })
@@ -163,7 +164,8 @@ class ReviewForm extends React.Component {
 function mapStateToProps(state) {
   return {
     active_restaurant: state.active_restaurant,
-    active_user: state.active_user
+    active_user: state.active_user,
+    userLoad: state.userLoad
   }
 }
 

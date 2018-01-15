@@ -8,6 +8,8 @@ import { toggleBio } from '../actions/toggleBio';
 import { changeBio } from '../actions/changeBio';
 import { changeLocal } from '../actions/changeLocal';
 import { initReviews } from '../actions/initReviews';
+import { userInfo } from '../../src/actions/userInfo';
+import { selectOption } from '../actions/index'
 //need a location finder for user location
 
 class User extends Component {
@@ -18,12 +20,19 @@ class User extends Component {
     this.BioDisplay = this.BioDisplay.bind(this);
     this.BioChangehandler = this.BioChangehandler.bind(this);
     this.LocationChangehandler = this.LocationChangehandler.bind(this);
+    this.beforeToggleBio = this.beforeToggleBio.bind(this);
+    this.getData = this.getData.bind(this);
   }
   
-  componentDidMount() {
-    axios.get(`/api/reviews?userid=${this.props.user.id}`).then( res => {
+  componentWillMount() {
+    this.getData();
+   
+  }
+  getData() {
+    axios.get(`/api/user?userid=${this.props.active_user.uid}`).then( res => {
       //set state with data
-      this.props.initReviews(res.data);
+      console.log('inside of componentwillpoent, this is the res', res)
+      this.props.userInfo(res.data);
     })
     .catch(err => { 
       console.log('axois get request err (userdisplay.js)', err); } );
@@ -41,30 +50,37 @@ class User extends Component {
       return (
         <div >
           Comments
-          <Review username={this.props.user.name}/>
+          <Review username={this.props.active_user.displayName}/>
         </div>
       )
     }
   }
 
   BioDisplay() {
+    console.log('inside of BioDisplay this is this.props.userLoad', this.props.userLoad)
     //display either bio edit or bio depending on state 
     if(this.props.editBio.value) {
       //display edit box prepopulated with previous bio
       return (
         <div className="card-text" > 
-          <p className="text-muted" ><input type="text" ref="localText" defaultValue={this.props.user.location} onChange={ () => {this.LocationChangehandler()} } /> </p>
-          <textarea defaultValue={this.props.user.bio} onChange={ () => {this.BioChangehandler()} } ref="bioText" ></textarea> 
+          <p>LOCATION:  </p><p className="text-muted" ><input type="text" ref="localText" id='location' defaultValue={this.props.userLoad[0].location} onChange={ () => {this.LocationChangehandler()} } /> </p>
+          <p>BIO:  </p>
+          <textarea id='bio' defaultValue={this.props.userLoad[0].Bio} onChange={ () => {this.BioChangehandler()} } ref="bioText" ></textarea> 
         </div>
       ) 
     } 
     else {
+      if(this.props.userLoad) {
       return (
         <div>
-          <p className="text-muted" > {this.props.user.location} </p>
-          <p> {this.props.user.bio} </p>
+          <p  id="location1" className="text-muted" >LOCATION:  {this.props.userLoad[0].location} </p>
+          <p id='bio1'>BIO: {this.props.userLoad[0].Bio} </p>
         </div> 
-      )   
+      )  }else{
+        <div>
+          what!!
+          </div>
+      } 
     }
   }
 
@@ -76,6 +92,29 @@ class User extends Component {
   LocationChangehandler() {
     //saves changes to location text input
     this.props.changeLocal(this.refs.localText.value)
+  }
+  beforeToggleBio() {
+    if(this.props.editBio.value){
+      let location = document.getElementById('location').value;
+      let bio = document.getElementById('bio').value;
+      // let bio = this.refs.bioText
+      // console.log('bbbbbbbeforeToggleBio this is the location and bio', location, bio)
+      axios.post('api/user', {userid: this.props.active_user.uid, location: location, bio: bio})
+        .then(response => {
+          if(response){
+            this.getData();
+          }else{
+          
+          }
+        })
+        .catch(err => {
+          console.log('getting err after submit bio', err)
+    
+        })
+  this.props.toggleBio()
+    }else{
+      this.props.toggleBio()
+    }
   }
 
   render() {
@@ -100,7 +139,7 @@ class User extends Component {
             <div className="card-body">
             <h4 className="card-title" > Bio </h4>
               { this.BioDisplay() }
-              <button className="btn btn-outline-dark" onClick={ () => { this.props.toggleBio() }} >Edit Bio</button>
+              <button className="btn btn-outline-dark" onClick={ () => { this.beforeToggleBio() }} >Edit Bio</button>
               {/* <p>You are located at: {this.props.user.location} </p>  */}
             </div>
           </div>
@@ -131,7 +170,9 @@ function mapStateToProps(state) {
     user: state.user,
     editBio: state.editBio,
     reviews: state.reviews,
-    active_user: state.active_user
+    active_user: state.active_user,
+    userLoad: state.userLoad,
+    option: state.option
   } 
 };
 
@@ -141,7 +182,9 @@ function matchDispatchToProps(dispatch) {
     toggleBio: toggleBio,
     changeBio: changeBio,
     changeLocal: changeLocal,
-    initReviews: initReviews
+    initReviews: initReviews,
+    userInfo: userInfo,
+    selectOption: selectOption
   }, dispatch)
 }
 

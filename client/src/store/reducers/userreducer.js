@@ -7,7 +7,7 @@ const defaultState = {
 }
 
 
-export default  function (state= defaultState, action){
+export default  function (state=null, action){
     switch(action.type) {
         case "EDIT_BIO":
           return Object.assign({}, state, { bio: action.payload } )
@@ -16,10 +16,6 @@ export default  function (state= defaultState, action){
         case "EDIT_LOCAL":
           return Object.assign({}, state, { location: action.payload } )
           break;
-
-        default:
-          return state;
-    
       }
       return state;
-     }
+}

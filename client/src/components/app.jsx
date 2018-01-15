@@ -19,14 +19,7 @@ class App extends React.Component {
   componentWillMount () {
     firebase.auth.onAuthStateChanged(user=> {
       if (user) {
-        axios.get(`/api/reviews`).then( res => {
-          console.log('User reviews', res.data)
-          //set state with data
-          this.props.initReviews(res.data);
-          console.log('Reviews?', this.props.reviews)
-      })
-      .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
-        this.props.activeUser(user);// here is a problem
+        this.props.activeUser(user);
       } else {
         return (
           <div>

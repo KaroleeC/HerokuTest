@@ -4,6 +4,7 @@ const keys = require('../config.js');
 const db = new Sequelize(keys.SQLURL);
 
 db.authenticate()
+
   .then(() => {
     console.log('Connected to database: FoodThoughts');
   })
