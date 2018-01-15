@@ -13,12 +13,20 @@ class ReviewForm extends React.Component {
       food: null,
       service: null,
       atmosphere: null,
-      cleanliness: null
+      cleanliness: null,
+      // comment: ''
     }
 
     this.onSelect = this.onSelect.bind(this);
+    // this.onChange = this.onChange.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
+
+  // onChange(e) {
+  //   // Capturing user comment
+  //   this.form[e.target.name] = e.target.value;
+  //   console.log(this.form[e.target.name]);
+  // }
 
   onSelect(e) {
     // Set radio values inside form object
@@ -26,17 +34,18 @@ class ReviewForm extends React.Component {
   }
 
   onSubmitHandler () {
-    const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
-
-    console.log(average);
-    // console.log('muthafuckin uid', this.props.active_user.uid)
+    const average = ((this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4).toFixed(1);
+    let text = document.getElementById('textarea').value
     console.log('this is the this.prop.userLoad',this.props.userLoad)
     let payload = {
       restaurantid: this.props.active_restaurant.id,
       rating: average,
-      userid: this.props.userLoad[0].id
+      userid: this.props.userLoad[0].id,
+      username: this.props.active_user.displayName,
+      userimage: this.props.active_user.photoURL,
+      comment: text
     };
-console.log('this is the payload', payload)
+    console.log('this is the payload', payload)
     axios.post('/api/reviews', payload)
     
       .then((data) => {
@@ -142,6 +151,10 @@ console.log('this is the payload', payload)
             <div className="form-check form-check-inline" >
               <input className="form-check-input" type="radio" name="cleanliness" id="five" value="5" />
               <label className="form-check-label" htmlFor="five">5</label>
+            </div>
+
+            <div>
+              <textarea name="comment" id="textarea" cols="40" rows="5" onChange={this.onChange} ></textarea>
             </div>
 
             <br/>

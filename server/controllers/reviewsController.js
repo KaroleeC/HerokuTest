@@ -6,7 +6,10 @@ const reviewsController = {
       Reviews.create({
         rating: req.body.rating,
         restaurantid: req.body.restaurantid,
-        UserId: req.body.userid, 
+        userid: req.body.userid,
+        username: req.body.username,
+        userimage: req.body.userimage,
+        comment: req.body.comment
       })
       .then(() => {
         Reviews.findAll({
